@@ -1,0 +1,15 @@
+<!-- app/views/foods/index.html.erb -->
+
+<h1>Food List</h1>
+
+<% if @foods.any? %>
+  <ul>
+    <% @foods.each do |food| %>
+      <li><%= food.name %> - Measurement unit: <%= food.measurement_unit %> -price: <%= food.price %></li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No foods added yet.</p>
+<% end %>
+
+<%= link_to 'Add New Food', new_food_path %>

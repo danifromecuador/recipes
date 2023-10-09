@@ -1,4 +1,12 @@
-<h1> Users </h1>
+<h1>Users</h1>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, foods_path(user_id: user.id) %>
+    </li>
+  <% end %>
+</ul>
 
 <%= form_tag destroy_user_session_path, method: :delete, class: 'logout-form' do %>
     <%= submit_tag 'Log out', class: 'logout-button' %>
