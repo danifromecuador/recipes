@@ -1,0 +1,27 @@
+<h1>Add New Food</h1>
+
+<%= form_for(@food) do |f| %>
+  <div>
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div>
+    <%= f.label :quantity %>
+    <%= f.number_field :quantity %>
+  </div>
+
+  <div>
+    <%= f.label :measured_unit %>
+    <%= f.select :measurement_unit, options_for_select(['grams', 'units'], 'grams') %>
+  </div>
+
+  <div>
+    <%= f.label :price %>
+    <%= f.number_field :price, step: 1, min: 0 %>
+  </div>
+
+  <%= f.submit 'Add Food' %>
+<% end %>
+
+<%= link_to 'Back to Food List', foods_path %>
