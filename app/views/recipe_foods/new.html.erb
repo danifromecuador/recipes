@@ -1,0 +1,8 @@
+<div class="recipes-show-container">
+  <h2>Add Ingredient</h2>
+  <%= form_with(model: @recipe_food, url: recipe_foods_path, local: true) do |form|%>
+    <span><%= form.collection_select :food_id, @foods, :id, :name, prompt: 'Select a food' %></span>    
+    <span>quantity:    <%= form.number_field :quantity, min: 1 %></span>
+    <span><%= form.submit 'Add Ingredient', class: 'button-white-black' %></span>
+  <% end %>
+</div>

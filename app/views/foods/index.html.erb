@@ -3,12 +3,13 @@
 <%= stylesheet_link_tag "foods", "data-turbo-track": "reload" %>
 <h2>Food List</h2>
 <div class="add-food-btn">
-  <%= link_to 'Add Food', new_food_path %>
+  <%= link_to 'Add Food', new_food_path, class: 'button-white-black' %>
 </div>
 <% if @foods.any? %>
   <ul class="foods-container">
     <div class="foods-header">
       <span>Food</span>
+      <span>Quantity</span>
       <span>Measurement Unit</span>
       <span>Unit Price</span>
       <span>Actions</span>
@@ -16,6 +17,7 @@
     <% @foods.each do |food| %>
       <li class="food-record"> 
         <span><%= food.name %></span>
+        <span><%= food.quantity %></span>
         <span><%= food.measurement_unit %></span>
         <span>$  <%= food.price %></span>
         <%= form_with(model: food, url: food_path(food), method: :delete) do |form| %>

@@ -10,6 +10,13 @@ Rails.application.routes.draw do
 
   resources :recipes, only: [:index, :show, :new, :create, :destroy]
 
+  resources :recipe_foods, only: [:new, :create, :destroy] do
+    member do
+      get 'edit_quantity'
+      patch 'update_quantity'
+    end
+  end
+
   get 'public_recipes', to: 'public_recipes#index', as: 'public_recipes'
   get 'public_recipes/:id', to: 'public_recipes#show', as: 'public_recipe'
   root to: "users#index"

@@ -14,7 +14,7 @@
         <% if recipe.user == current_user %>
           <%= form_with(model: recipe, url: recipe_path(recipe), method: :delete) do |form| %>
             <%= form.hidden_field :_method, value: "delete" %>
-            <%= form.submit 'Remove' %>
+            <%= form.submit 'Remove', class: 'button-white-black' %>
           <% end %>
         <% end %>
       </div>

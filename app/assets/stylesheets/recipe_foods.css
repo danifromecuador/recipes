@@ -1,0 +1,14 @@
+form[action="/recipe_foods"][method="post"] {
+  display: flex;
+  justify-content: space-between;
+}
+
+form[action="/recipe_foods"][method="post"] span {
+  width: 30%;
+  display: flex;
+  justify-content: center;
+}
+
+input[type="number"][name="recipe_food[quantity]"] {
+  width: 50px;
+}

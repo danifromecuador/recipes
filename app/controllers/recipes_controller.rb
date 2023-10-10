@@ -30,7 +30,7 @@ class RecipesController < ApplicationController
     @recipe.destroy
     redirect_to recipes_path, notice: 'Recipe successfully destroyed.'
   end
-
+  
   private
 
   def recipe_params

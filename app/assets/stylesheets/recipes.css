@@ -2,6 +2,7 @@
   border: 5px solid black;
   margin: 10px 0;
   display: flex;
+  padding: 10px 0;
 }
 
 .recipe .left {
@@ -24,6 +25,10 @@ form[action="/recipes"][method="post"] div {
   margin: 10px 0;
 }
 
+form[action="/recipes"][method="post"] div textarea {
+  width: 37.5%;
+}
+
 input[type="submit"][value="Create Recipe"] {
   margin: 10px auto;
   display: block;
@@ -37,6 +42,11 @@ textarea[id="recipe_description"] {
   width: 75%;
   text-decoration: none;
   color: black;
+  display: flex;
+  justify-content: center;
+}
+
+.right p {
 }
 
 /* ////////////////////////////// */
@@ -69,3 +79,19 @@ textarea[id="recipe_description"] {
   display: flex;
   justify-content: space-between;
 }
+
+.ingredients-container li:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.ingredients-container li:nth-child(odd) {
+  background-color: #fff;
+}
+
+
+.ingredients {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
