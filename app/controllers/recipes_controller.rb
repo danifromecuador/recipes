@@ -23,12 +23,6 @@ class RecipesController < ApplicationController
 
   def show
     @recipe = current_user.recipes.find(params[:id])
-
-    return if @recipe.public?
-
-    # Handle the case where the recipe is not public
-    # For example, you can redirect to an error page or show a flash message
-    redirect_to root_path, alert: 'Recipe not found.'
   end
 
   private

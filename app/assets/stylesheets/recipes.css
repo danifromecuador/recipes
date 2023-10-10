@@ -2,7 +2,6 @@
   border: 5px solid black;
   margin: 10px 0;
   display: flex;
-
 }
 
 .recipe .left {
@@ -34,3 +33,31 @@ textarea[id="recipe_description"] {
   width: 36%;
 }
 
+/* ////////////////////////////// */
+/* /////// recipes show  //////// */
+/* ////////////////////////////// */
+
+.recipes-show-container {
+  border: 5px solid black;
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.recipes-show-container h2 {
+  text-align: center;
+}
+
+.preparation-and-public {
+  display: flex;
+  justify-content: space-between;
+}
+
+.generate-and-add {
+  display: flex;
+  justify-content: space-between;
+}

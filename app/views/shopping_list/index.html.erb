@@ -1,11 +1,41 @@
-<h1>Shopping List</h1>
-
-<h2>Missing Food Items:</h2>
-<ul>
-  <% @shopping_list[:missing_food_list].each do |food| %>
-    <li><%= food.name %></li>
-  <% end %>
-</ul>
-
-<p>Total Food Items: <%= @shopping_list[:total_food_items] %></p>
-<p>Total Price: <%= @shopping_list[:total_price] %></p>
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      text-align: left;
+      padding: 8px;
+    }
+    th {
+      background-color: #F2F2F2;
+    }
+    tr:nth-child(odd) {
+      background-color: #F2F2F2;
+    }
+  </style>
+</head>
+<body>
+  <h2>Shopping List</h2>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <% @shopping_list[:shopping_list].each do |item| %>
+        <tr>
+          <td><%= item[:food].name %></td>
+          <td><%= item[:quantity] %></td>
+          <td><%= item[:price] %></td>
+        </tr>
+      <% end %>
+  </table>
+  <br>
+  <p>Total Food Items to Buy: <%= @total_food_items %></p>
+  <p>Total Price: <%= @total_price %></p>
+</body>
+</html>
