@@ -1,0 +1,47 @@
+.add-food-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.add-food-btn a {
+  padding: 2px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+}
+
+.add-food-btn a:hover {
+  background-color: black;
+  color: white;
+}
+
+.foods-container {
+  width: 100%;
+  border: 5px solid black;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.foods-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  width: 25%;
+}
+
+.food-record {
+  display: flex;
+  justify-content: space-between;
+}
+
+li:nth-child(even) {
+  background-color: #f2f2f2; /* or any color you prefer */
+}
+
+/* Style odd list items */
+li:nth-child(odd) {
+  background-color: #ffffff; /* or any color you prefer */
+}
