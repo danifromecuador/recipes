@@ -12,4 +12,6 @@ Rails.application.routes.draw do
 
   get 'public_recipes', to: 'public_recipes#index', as: 'public_recipes'
   root to: "users#index"
+
+  get '/shopping_list', to: 'shopping_list#index', as: 'shopping_list'
 end
