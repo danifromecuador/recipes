@@ -21,13 +21,13 @@
       </div>
 
       <div class="right">
-        <%# create a span that says: "Welcome username" but with the current user name %>
-        <span>Welcome <%= @current_user.name if @current_user %></span>
+        <% if user_signed_in? %>
+          <span>Welcome <%= current_user.name %></span>
+        <%end%>
         <%= link_to "Foods", foods_path %>
         <%= link_to "Recipes", recipes_path %>
         <%= link_to "Public Recipes", public_recipes_path %>
         <%= link_to "Shopping List", root_path %>
-        <%= button_to "Sign Out", destroy_user_session_path, method: :delete %>
       </div>
     </div>
 
