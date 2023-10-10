@@ -1,3 +1,5 @@
+/* Path: /app/assets/stylesheets/application.css */
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +15,31 @@
  *= require_tree .
  *= require_self
  */
+
+.nav-bar-container {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  border: 1px solid red;
+  height: 50px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left {
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+img {
+  height: 100%;
+}
+
+.right {
+  border: 1px solid rgb(155, 134, 248);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
