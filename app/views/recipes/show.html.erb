@@ -1,9 +1,15 @@
 <h2><%= @recipe.name %></h2>
 
-<p>Description: <%= @recipe.description %></p>
 <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
-<p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
 <p>Public: <%= @recipe.public ? 'Yes' : 'No' %></p>
+
+<p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
+<p>Description: <%= @recipe.description %></p>
+
+<%= link_to 'Generate Shopping List', shopping_list_path %>
+<%= link_to 'Add Ingredient', recipes_path %>
+
+<hr>
 
 <% if @recipe.user == current_user %>
   <%= link_to 'Delete', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } %>
