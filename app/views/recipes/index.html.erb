@@ -13,16 +13,15 @@
       <div class="remove-btn">
         <% if recipe.user == current_user %>
           <%= form_with(model: recipe, url: recipe_path(recipe), method: :delete) do |form| %>
-          <%= form.hidden_field :_method, value: "delete" %>
-          <%= form.submit 'Remove' %>
-        <% end %>
+            <%= form.hidden_field :_method, value: "delete" %>
+            <%= form.submit 'Remove' %>
+          <% end %>
         <% end %>
       </div>
     </div>
-
-    <div class="right">
-      <p>Description: <%= recipe.description %></p>
-    </div>
-    <%= link_to 'View Recipe Details', recipe_path(recipe) %>
+    
+    <%= link_to recipe_path(recipe), class: "right" do %>    
+      <p><%= recipe.description %></p>
+    <% end %>
   </div>
 <% end %>

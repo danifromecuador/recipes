@@ -16,11 +16,11 @@
  *= require_self
  */
 
- * {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
- }
+}
 
 body {
   font-family: sans-serif;
@@ -73,7 +73,7 @@ img {
   border: 1px solid black;
 }
 
-li a:hover {
+.nav-bar-container li a:hover {
   background-color: black;
   color: white;
 }

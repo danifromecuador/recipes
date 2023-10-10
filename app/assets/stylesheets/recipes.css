@@ -5,7 +5,7 @@
 }
 
 .recipe .left {
-  width: 35%;
+  width: 25%;
   display: flex;
   flex-direction: column;
 }
@@ -33,8 +33,16 @@ textarea[id="recipe_description"] {
   width: 36%;
 }
 
+.right {
+  width: 75%;
+  text-decoration: none;
+  color: black;
+}
+
 /* ////////////////////////////// */
+
 /* /////// recipes show  //////// */
+
 /* ////////////////////////////// */
 
 .recipes-show-container {

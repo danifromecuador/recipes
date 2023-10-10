@@ -24,6 +24,7 @@
   margin: 0;
   box-sizing: border-box;
 }
+
 .foods-header {
   display: flex;
   justify-content: space-between;
@@ -35,7 +36,6 @@ span {
 
 .food-record {
   display: flex;
-  justify-content: space-between;
 }
 
 .foods-container li:nth-child(even) {
@@ -43,11 +43,13 @@ span {
 }
 
 .foods-container li:nth-child(odd) {
-  background-color: #ffffff;
+  background-color: #fff;
 }
 
 /* ////////////////////////////// */
+
 /* ///////// foods new  ///////// */
+
 /* ////////////////////////////// */
 
 form[action="/foods"][method="post"] {
