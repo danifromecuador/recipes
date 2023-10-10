@@ -3,7 +3,7 @@
 <h2>Recipes</h2>
 
 <div class="add-food-btn">
-  <%= link_to 'Create New Recipe', new_recipe_path, class: 'btn btn-primary' %>
+  <%= link_to 'Add Recipe', new_recipe_path, class: 'btn btn-primary' %>
 </div>
 
 <% @recipes.each do |recipe| %>
@@ -22,5 +22,4 @@
     </div>
     <%= link_to 'View Recipe Details', recipe_path(recipe) %>
   </div>
-  <hr>
 <% end %>

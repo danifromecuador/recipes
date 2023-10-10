@@ -1,9 +1,8 @@
 .recipe {
   border: 5px solid black;
-}
-
-.recipe {
+  margin: 10px 0;
   display: flex;
+
 }
 
 .recipe .left {
@@ -11,3 +10,27 @@
   display: flex;
   flex-direction: column;
 }
+
+form[action="/recipes"][method="post"] {
+  border: 5px solid black;
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+form[action="/recipes"][method="post"] div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+input[type="submit"][value="Create Recipe"] {
+  margin: 10px auto;
+  display: block;
+}
+
+textarea[id="recipe_description"] {
+  width: 36%;
+}
+
