@@ -1,6 +1,7 @@
 .add-food-btn {
   display: flex;
   justify-content: flex-end;
+  margin: 10px;
 }
 
 .add-food-btn a {
@@ -37,11 +38,33 @@ span {
   justify-content: space-between;
 }
 
-li:nth-child(even) {
-  background-color: #f2f2f2; /* or any color you prefer */
+.foods-container li:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
-/* Style odd list items */
-li:nth-child(odd) {
-  background-color: #ffffff; /* or any color you prefer */
+.foods-container li:nth-child(odd) {
+  background-color: #ffffff;
+}
+
+/* ////////////////////////////// */
+/* ///////// foods new  ///////// */
+/* ////////////////////////////// */
+
+form[action="/foods"][method="post"] {
+  border: 5px solid black;
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+form[action="/foods"][method="post"] div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+input[type="submit"][value="Add Food"] {
+  margin: 10px auto;
+  display: block;
 }

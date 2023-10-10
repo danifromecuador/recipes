@@ -1,0 +1,13 @@
+.recipe {
+  border: 5px solid black;
+}
+
+.recipe {
+  display: flex;
+}
+
+.recipe .left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}

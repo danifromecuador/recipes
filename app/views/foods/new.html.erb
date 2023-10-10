@@ -8,7 +8,7 @@
 
   <div>
     <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
+    <%= f.number_field :quantity, step: 1, min: 0 %>
   </div>
 
   <div>
