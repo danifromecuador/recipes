@@ -15,6 +15,7 @@ class User < ApplicationRecord
     missing_food_list = []
     total_food_items = 0
     total_price = 0
+
     recipes.each do |recipe|
       recipe.foods.each do |food|
         unless user_food_list.where(id: food.id).empty? ||
@@ -28,6 +29,7 @@ class User < ApplicationRecord
                                      - user_food_list.find(food.id).quantity)
       end
     end
+
     shopping_list = []
     missing_food_list.each do |food|
       recipe_food = food.recipe_foods.find_by(recipe_id: recipes.pluck(:id))
@@ -37,10 +39,6 @@ class User < ApplicationRecord
       price = quantity_to_buy * food.price
       shopping_list << { food:, quantity: quantity_to_buy, price: }
     end
-    {
-      shopping_list:,
-      total_food_items:,
-      total_price:
-    }
+    { shopping_list:, total_food_items:, total_price: }
   end
 end

@@ -1,4 +1,7 @@
-<h1>Edit Quantity</h1>
-<p>Edit the quantity for this recipe food:</p>
-<%= render 'form', recipe_food: @recipe_food %>
-<%= link_to 'Back', recipe_food_path(@recipe_food) %>
+<div class="recipes-show-container">
+  <h2>Edit Quantity</h2>
+  <p>Edit the quantity for this recipe food:</p>
+  <%= render 'form', recipe_food: @recipe_food %>
+  <%= link_to 'Back', recipe_path(@recipe_food) %>
+</div>
+

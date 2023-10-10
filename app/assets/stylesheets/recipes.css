@@ -46,9 +46,6 @@ textarea[id="recipe_description"] {
   justify-content: center;
 }
 
-.right p {
-}
-
 /* ////////////////////////////// */
 
 /* /////// recipes show  //////// */
@@ -88,10 +85,8 @@ textarea[id="recipe_description"] {
   background-color: #fff;
 }
 
-
 .ingredients {
   display: flex;
   justify-content: space-around;
   align-items: center;
 }
-
