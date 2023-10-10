@@ -22,6 +22,11 @@
   box-sizing: border-box;
  }
 
+body {
+  font-family: sans-serif;
+  padding: 5%;
+}
+
 .nav-bar-container {
   height: 3rem;
   display: flex;
@@ -75,4 +80,12 @@ li a:hover {
 
 span {
   white-space: nowrap;
+}
+
+footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
 }

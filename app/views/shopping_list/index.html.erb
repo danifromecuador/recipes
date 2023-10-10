@@ -1,25 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <style>
-    table {
-      border-collapse: collapse;
-      width: 100%;
-    }
-    th, td {
-      text-align: left;
-      padding: 8px;
-    }
-    th {
-      background-color: #F2F2F2;
-    }
-    tr:nth-child(odd) {
-      background-color: #F2F2F2;
-    }
-  </style>
-</head>
-<body>
+<div class="shopping-list-container">
   <h2>Shopping List</h2>
+  <div class="ammount-and-total">
+    <p>Amount of food items to buy: <%= @total_food_items %></p>
+    <p>Total value of food needed: $ <%= @total_price %></p>
+  </div>
   <table>
     <tr>
       <th>Food</th>
@@ -30,12 +14,8 @@
         <tr>
           <td><%= item[:food].name %></td>
           <td><%= item[:quantity] %></td>
-          <td><%= item[:price] %></td>
+          <td>$ <%= item[:price] %></td>
         </tr>
       <% end %>
   </table>
-  <br>
-  <p>Total Food Items to Buy: <%= @total_food_items %></p>
-  <p>Total Price: <%= @total_price %></p>
-</body>
-</html>
+</div>

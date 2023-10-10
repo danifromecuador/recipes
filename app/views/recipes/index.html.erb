@@ -12,7 +12,10 @@
       <h3><%= recipe.name %></h3>
       <div class="remove-btn">
         <% if recipe.user == current_user %>
-          <%= link_to 'REMOVE', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } %>
+          <%= form_with(model: recipe, url: recipe_path(recipe), method: :delete) do |form| %>
+          <%= form.hidden_field :_method, value: "delete" %>
+          <%= form.submit 'Remove' %>
+        <% end %>
         <% end %>
       </div>
     </div>

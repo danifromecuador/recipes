@@ -18,7 +18,10 @@
         <span><%= food.name %></span>
         <span><%= food.measurement_unit %></span>
         <span>$  <%= food.price %></span>
-        <span>DELETE</span>
+        <%= form_with(model: food, url: food_path(food), method: :delete) do |form| %>
+          <%= form.hidden_field :_method, value: "delete" %>
+          <%= form.submit 'Remove' %>
+        <% end %>
       </li>
     <% end %>
   </ul>
