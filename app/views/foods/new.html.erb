@@ -8,7 +8,7 @@
 
   <div>
     <%= f.label :quantity %>
-    <%= f.number_field :quantity %>
+    <%= f.number_field :quantity, step: 1, min: 0 %>
   </div>
 
   <div>
@@ -21,7 +21,5 @@
     <%= f.number_field :price, step: 1, min: 0 %>
   </div>
 
-  <%= f.submit 'Add Food' %>
+  <%= f.submit 'Add Food', class: 'button-white-black' %>
 <% end %>
-
-<%= link_to 'Back to Food List', foods_path %>

@@ -1,12 +1,39 @@
-<h1><%= @recipe.name %></h1>
+<div class="recipes-show-container">
+  <h2><%= @recipe.name %></h2>
 
-<p>Description: <%= @recipe.description %></p>
-<p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
-<p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
-<p>Public: <%= @recipe.public ? 'Yes' : 'No' %></p>
+  <div class="preparation-and-public">
+    <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
+    <p>Public: <%= @recipe.public ? 'Yes' : 'No' %></p>
+  </div>
 
-<% if @recipe.user == current_user %>
-  <%= link_to 'Delete', recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } %>
-<% end %>
+  <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
+  <p>Description: <%= @recipe.description %></p>
+  
+  <div class="generate-and-add">
+    <%= link_to 'Generate Shopping List', shopping_list_path, class:"button-white-black" %>
+    <%= link_to 'Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class:"button-white-black" %>
+  </div>
+  <hr>
 
-<%= link_to 'Back to Recipes', recipes_path %>
+  <% if @recipe.user == current_user %>
+    <%= form_with(model: @recipe, url: recipe_path(@recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' }) do |form| %>
+    <%= form.submit 'Delete', class:"button-white-black" %>
+  <% end %>
+  <% end %>
+
+  <h3>Ingredients:</h3>
+  <ul class="ingredients-container">
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <li class="ingredients">
+        <span><%= recipe_food.food.name %></span>
+        <span>(<%= recipe_food.quantity %> units)</span>
+        <span><%= link_to 'Update', edit_quantity_recipe_food_path(recipe_food), class:"button-white-black" %></span>
+        <span>
+          <%= form_with(model: recipe_food, url: recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure you want to remove this ingredient?' }) do |form| %>
+            <%= form.submit 'Remove', class:"button-white-black" %>
+          <% end %>        
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>

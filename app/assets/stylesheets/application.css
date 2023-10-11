@@ -1,3 +1,5 @@
+/* Path: /app/assets/stylesheets/application.css */
+
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.
@@ -13,3 +15,97 @@
  *= require_tree .
  *= require_self
  */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  padding: 5%;
+  min-width: 1000px;
+}
+
+.nav-bar-container {
+  height: 3rem;
+  display: flex;
+  justify-content: space-between;
+  column-gap: 1rem;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+}
+
+.right {
+  width: 70%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+img {
+  height: 100%;
+}
+
+.title {
+  white-space: nowrap;
+}
+
+.links-list {
+  width: 100%;
+  padding: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.links-list li {
+  list-style: none;
+  white-space: nowrap;
+}
+
+.nav-bar-container li a {
+  padding: 2px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+}
+
+.nav-bar-container li a:hover {
+  background-color: black;
+  color: white;
+}
+
+span {
+  white-space: nowrap;
+}
+
+footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  column-gap: 1rem;
+}
+
+.button-white-black {
+  padding: 2px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: rgb(216, 216, 216);
+  color: black;
+  border: 1px solid black;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.button-white-black:hover {
+  background-color: black;
+  color: white;
+}

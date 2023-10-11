@@ -1,9 +1,20 @@
-<h1>Public Recipe List</h1>
+<h2>Public Recipes</h2>
 
-<ul>
+<ul class="public-recipes-ul-container">
   <% @recipes.each do |recipe| %>
     <li>
-      <%= link_to recipe.name, recipe_path(recipe) %>
+      <%= link_to recipe_path(recipe), class:"li-container" do %>
+        <div class="left">
+          <%= recipe.name %>
+          <div class="chef">
+            By <%= recipe.user_id %>
+          </div>
+        </div>
+        <div class="right">
+          <p>Total food items: number</p>
+          <p>Total price: number</p>
+        </div>
+      <% end %>
     </li>
   <% end %>
 </ul>

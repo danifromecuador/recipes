@@ -1,15 +1,33 @@
 <!-- app/views/foods/index.html.erb -->
 
-<h1>Food List</h1>
-
+<%= stylesheet_link_tag "foods", "data-turbo-track": "reload" %>
+<h2>Food List</h2>
+<div class="add-food-btn">
+  <%= link_to 'Add Food', new_food_path, class: 'button-white-black' %>
+</div>
 <% if @foods.any? %>
-  <ul>
+  <ul class="foods-container">
+    <div class="foods-header">
+      <span>Food</span>
+      <span>Quantity</span>
+      <span>Measurement Unit</span>
+      <span>Unit Price</span>
+      <span>Actions</span>
+    </div>
     <% @foods.each do |food| %>
-      <li><%= food.name %> - Measurement unit: <%= food.measurement_unit %> -price: <%= food.price %></li>
+      <li class="food-record"> 
+        <span><%= food.name %></span>
+        <span><%= food.quantity %></span>
+        <span><%= food.measurement_unit %></span>
+        <span>$  <%= food.price %></span>
+        <%= form_with(model: food, url: food_path(food), method: :delete) do |form| %>
+          <%= form.hidden_field :_method, value: "delete" %>
+          <%= form.submit 'Remove' %>
+        <% end %>
+      </li>
     <% end %>
   </ul>
 <% else %>
   <p>No foods added yet.</p>
 <% end %>
 
-<%= link_to 'Add New Food', new_food_path %>

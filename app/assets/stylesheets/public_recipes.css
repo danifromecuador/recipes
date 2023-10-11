@@ -1,0 +1,37 @@
+h2 {
+  text-align: center;
+}
+
+.public-recipes-ul-container {
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+li {
+  list-style: none;
+}
+
+.li-container {
+  list-style: none;
+  border: 5px solid black;
+  display: flex;
+  text-decoration: none;
+}
+
+.public-recipes-ul-container .left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+  color: black;
+}
+
+.public-recipes-ul-container .right {
+  width: 65%;
+  display: flex;
+  flex-direction: column;
+}

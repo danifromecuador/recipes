@@ -1,3 +1,6 @@
+<!-- Path: app/views/layouts/application.html.erb -->
+<%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -11,8 +14,36 @@
   </head>
 
   <body>
+    <div class="nav-bar-container">
+      <div class="left">
+        <%= image_tag "hero.jpg", alt: "hero icon" %>
+        <div class="title">
+          <h1>Recipes with Rails</h1>
+        </div>
+      </div>
+
+      <div class="right">
+        <ul class="links-list">
+          <li>
+            <% if user_signed_in? %>
+              <span>Welcome <%= current_user.name %>!</span>
+            <%end%>
+          </li>
+          <li><%= link_to "Foods", foods_path %></li>
+          <li><%= link_to "Recipes", recipes_path %></li>
+          <li><%= link_to "Public Recipes", public_recipes_path %></li>
+          <li><%= link_to "Shopping List", shopping_list_path %></li>
+        </ul>
+      </div>
+    </div>
+
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
-    <%= yield %>
+  <%= yield %>
+  <footer>
+    <%= form_tag destroy_user_session_path, method: :delete, class: 'logout-form' do %>
+      <%= submit_tag 'Log out', class: 'button-white-black' %>
+    <% end %>
+  </footer>
   </body>
 </html>

@@ -1,20 +1,27 @@
-<h1>Recipes</h1>
+<%= stylesheet_link_tag "recipes", "data-turbo-track": "reload" %>
 
+<h2>Recipes</h2>
 
-<%= link_to 'Create New Recipe', new_recipe_path, class: 'btn btn-primary' %>
+<div class="add-food-btn">
+  <%= link_to 'Add Recipe', new_recipe_path, class: 'btn btn-primary' %>
+</div>
+
 <% @recipes.each do |recipe| %>
-  <div>
-    <h2><%= recipe.name %></h2>
-    <p>Description: <%= recipe.description %></p>
-    <p>Preparation Time: <%= recipe.preparation_time %> minutes</p>
-    <p>Cooking Time: <%= recipe.cooking_time %> minutes</p>
-    <p>Public: <%= recipe.public ? 'Yes' : 'No' %></p>
-
-    <% if recipe.user == current_user %>
-      <%= link_to 'Delete', recipe_path(recipe), method: :delete, data: { confirm: 'Are you sure you want to delete this recipe?' } %>
+  <div class="recipe">
+    <div class="left">
+      <h3><%= recipe.name %></h3>
+      <div class="remove-btn">
+        <% if recipe.user == current_user %>
+          <%= form_with(model: recipe, url: recipe_path(recipe), method: :delete) do |form| %>
+            <%= form.hidden_field :_method, value: "delete" %>
+            <%= form.submit 'Remove', class: 'button-white-black' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+    <%= link_to recipe_path(recipe), class: "right" do %>    
+      <p><%= recipe.description %></p>
     <% end %>
-
-    <%= link_to 'View Recipe Details', recipe_path(recipe) %>
   </div>
-  <hr>
 <% end %>
