@@ -8,12 +8,13 @@ Rails.application.routes.draw do
   # root "articles#index"
   resources :foods, only: [:index, :new, :create, :destroy]
 
+  resources :users, only: [:index]
   resources :recipes, only: [:index, :show, :new, :create, :destroy] do
     member do
       patch 'toggle_public'
     end
   end
-
+  
   resources :recipe_foods, only: [:new, :create, :destroy] do
     member do
       get 'edit_quantity'

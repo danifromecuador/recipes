@@ -29,7 +29,7 @@
               <span>Welcome <%= current_user.name %>!</span>
             <%end%>
           </li>
-          <li><%= link_to "Foods", foods_path %></li>
+          <li><%= link_to "Foods", foods_path, {} %></li>
           <li><%= link_to "Recipes", recipes_path %></li>
           <li><%= link_to "Public Recipes", public_recipes_path %></li>
           <li><%= link_to "Shopping List", shopping_list_path %></li>
