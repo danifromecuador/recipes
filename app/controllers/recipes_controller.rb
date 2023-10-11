@@ -34,11 +34,9 @@ class RecipesController < ApplicationController
   def toggle_public
     @recipe = Recipe.find(params[:id])
     @recipe.update(public: !@recipe.public)
-    respond_to do |format|
-      format.js
-    end
+    respond_to(&:js)
   end
-  
+
   private
 
   def recipe_params

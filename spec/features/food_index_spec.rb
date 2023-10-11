@@ -4,8 +4,8 @@ RSpec.feature 'Food Index Page', type: :feature do
   let(:user) { create(:user, confirmed_at: Time.now) }
 
   before do
-    @food1 = create(:food, name: 'Food 1', user: user)
-    @food2 = create(:food, name: 'Food 2', user: user)
+    @food1 = create(:food, name: 'Food 1', user:)
+    @food2 = create(:food, name: 'Food 2', user:)
 
     sign_in user
   end
@@ -17,4 +17,3 @@ RSpec.feature 'Food Index Page', type: :feature do
     expect(page).to have_content(@food2.name)
   end
 end
-

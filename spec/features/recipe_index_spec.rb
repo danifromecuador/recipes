@@ -2,8 +2,8 @@ require 'rails_helper'
 
 RSpec.feature 'Recipes Index Page', type: :feature do
   let(:user) { create(:user, confirmed_at: Time.now) }
-  let!(:recipe1) { create(:recipe, name: 'Recipe 1', description: 'Description 1', user: user) }
-  let!(:recipe2) { create(:recipe, name: 'Recipe 2', description: 'Description 2', user: user) }
+  let!(:recipe1) { create(:recipe, name: 'Recipe 1', description: 'Description 1', user:) }
+  let!(:recipe2) { create(:recipe, name: 'Recipe 2', description: 'Description 2', user:) }
 
   before do
     sign_in user

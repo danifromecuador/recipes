@@ -2,7 +2,10 @@ require 'rails_helper'
 
 RSpec.feature 'Recipe Show Page', type: :feature do
   let(:user) { create(:user, confirmed_at: Time.now) }
-  let!(:recipe) { create(:recipe, name: 'Test Recipe', preparation_time: 30, cooking_time: 45, description: 'Test Description', public: true, user: user) }
+  let!(:recipe) do
+    create(:recipe, name: 'Test Recipe', preparation_time: 30, cooking_time: 45, description: 'Test Description',
+                    public: true, user:)
+  end
   let(:user) { create(:user) }
 
   scenario 'displays recipe details' do
