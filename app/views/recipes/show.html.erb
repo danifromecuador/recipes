@@ -4,6 +4,7 @@
   <div class="preparation-and-public">
     <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
     <p>Public: <%= @recipe.public ? 'Yes' : 'No' %></p>
+    <%= button_to 'Toggle Public', url_for(action: 'toggle_public', controller: 'recipes', id: @recipe.id), remote: true, method: :patch %>
   </div>
 
   <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>

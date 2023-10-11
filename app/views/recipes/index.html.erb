@@ -7,7 +7,7 @@
 </div>
 
 <% @recipes.each do |recipe| %>
-  <div class="recipe">
+  <div class="recipe" data-id="<%= recipe.id %>">
     <div class="left">
       <h3><%= recipe.name %></h3>
       <div class="remove-btn">
