@@ -12,21 +12,35 @@ class User < ApplicationRecord
   def generate_shopping_list
     recipes = self.recipes
     user_food_list = Food.where(user_id: id)
-
-    missing_food_list = []
+  
+    missing_food_list = {}
     total_food_items = 0
     total_price = 0
-
+  
     recipes.each do |recipe|
       missing_foods, recipe_total_price = find_missing_foods_and_price(user_food_list, recipe)
-      missing_food_list.concat(missing_foods)
+      missing_foods.each do |food|
+        quantity_to_buy = food.recipe_foods.find_by(recipe_id: recipe.id).quantity
+  
+        if missing_food_list[food.id]
+          missing_food_list[food.id][:quantity_to_buy] += quantity_to_buy
+        else
+          missing_food_list[food.id] = { food: food, quantity_to_buy: quantity_to_buy }
+        end
+      end
       total_price += recipe_total_price
       total_food_items += missing_foods.count
     end
-
-    shopping_list = create_shopping_list(recipes.pluck(:id), user_food_list, missing_food_list)
-
-    { shopping_list:, total_food_items:, total_price: }
+    
+    user_food_list.each do |user_food|
+      if missing_food_list[user_food.id]
+        missing_food_list[user_food.id][:quantity_to_buy] -= user_food.quantity
+      end
+    end
+  
+    shopping_list = missing_food_list.map { |_, food| { food: food[:food], quantity: food[:quantity_to_buy], price: food[:quantity_to_buy] * food[:food].price } }
+  
+    { shopping_list: shopping_list, total_food_items: total_food_items, total_price: total_price }
   end
 
   private

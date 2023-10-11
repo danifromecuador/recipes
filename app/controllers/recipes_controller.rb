@@ -31,6 +31,14 @@ class RecipesController < ApplicationController
     redirect_to recipes_path, notice: 'Recipe successfully destroyed.'
   end
 
+  def toggle_public
+    @recipe = Recipe.find(params[:id])
+    @recipe.update(public: !@recipe.public)
+    respond_to do |format|
+      format.js
+    end
+  end
+  
   private
 
   def recipe_params

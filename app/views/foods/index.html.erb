@@ -15,19 +15,20 @@
       <span>Actions</span>
     </div>
     <% @foods.each do |food| %>
-      <li class="food-record"> 
-        <span><%= food.name %></span>
-        <span><%= food.quantity %></span>
-        <span><%= food.measurement_unit %></span>
-        <span>$  <%= food.price %></span>
-        <%= form_with(model: food, url: food_path(food), method: :delete) do |form| %>
-          <%= form.hidden_field :_method, value: "delete" %>
-          <%= form.submit 'Remove' %>
-        <% end %>
-      </li>
+      <% if food.user_id == current_user.id %>
+        <li class="food-record"> 
+          <span><%= food.name %></span>
+          <span><%= food.quantity %></span>
+          <span><%= food.measurement_unit %></span>
+          <span>$ <%= food.price %></span>
+          <%= form_with(model: food, url: food_path(food), method: :delete) do |form| %>
+            <%= form.hidden_field :_method, value: "delete" %>
+            <%= form.submit 'Remove' %>
+          <% end %>
+        </li>
+      <% end %>
     <% end %>
   </ul>
 <% else %>
   <p>No foods added yet.</p>
 <% end %>
-

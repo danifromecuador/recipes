@@ -1,18 +1,17 @@
 <h2>Public Recipes</h2>
-
 <ul class="public-recipes-ul-container">
   <% @recipes.each do |recipe| %>
     <li>
-      <%= link_to recipe_path(recipe), class:"li-container" do %>
+      <%= link_to recipe_path(recipe), class: "li-container" do %>
         <div class="left">
           <%= recipe.name %>
           <div class="chef">
-            By <%= recipe.user_id %>
+            By <%= recipe.user.name %>
           </div>
         </div>
         <div class="right">
-          <p>Total food items: number</p>
-          <p>Total price: number</p>
+          <p>Total food items: <%= recipe.recipe_foods.count %></p>
+          <p>Total price: <%= recipe.recipe_foods.sum { |rf| rf.food.price * rf.quantity } %></p>
         </div>
       <% end %>
     </li>
