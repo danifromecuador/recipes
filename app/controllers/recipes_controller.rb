@@ -18,7 +18,7 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = current_user.recipes
+    @recipes = Recipe.all
   end
 
   def show

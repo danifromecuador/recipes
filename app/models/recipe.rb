@@ -3,8 +3,8 @@ class Recipe < ApplicationRecord
   has_many :recipe_foods, foreign_key: 'recipe_id', dependent: :destroy
   has_many :foods, through: :recipe_foods
 
-  def total_price
-    #   # Calculate the total price for the recipe
-    #   recipe_foods.sum { |rf| rf.quantity * rf.food.price }
-  end
+  validates :name, presence: true
+  validates :description, presence: true
+  validates :preparation_time, presence: true
+  validates :cooking_time, presence: true
 end

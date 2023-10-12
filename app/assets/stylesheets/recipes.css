@@ -108,3 +108,12 @@ textarea[id="recipe_description"] {
   justify-content: space-around;
   align-items: center;
 }
+
+.add-btn {
+  padding: 4px 7px;
+  border-radius: 4px;
+  text-decoration: none;
+  background-color: rgb(216, 216, 216);
+  border: 1px solid black;
+  color: black;
+}
