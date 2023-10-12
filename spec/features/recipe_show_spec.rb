@@ -16,7 +16,7 @@ RSpec.feature 'Recipe Show Page', type: :feature do
     expect(page).to have_content("Cooking Time: #{recipe.cooking_time} minutes")
     expect(page).to have_content("Description: #{recipe.description}")
 
-    expect(page).to have_button('Toggle Public')
+    expect(page).to have_button('Public') or have_button('Private')
     expect(page).to have_link('Generate Shopping List', href: shopping_list_path)
     expect(page).to have_link('Add Ingredient', href: new_recipe_food_path(recipe_id: recipe.id))
 

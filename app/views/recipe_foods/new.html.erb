@@ -1,5 +1,5 @@
 <div class="recipes-show-container">
-  <h2>Add Ingredient</h2>
+  <h1>Add Ingredient</h1>
   <%= form_with(model: @recipe_food, url: recipe_foods_path, local: true) do |form|%>
     <span>
       <%= form.collection_select :food_id, current_user.foods, :id, :name, prompt: 'Select a food' %>

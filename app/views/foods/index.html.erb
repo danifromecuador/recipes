@@ -1,7 +1,7 @@
 <!-- app/views/foods/index.html.erb -->
 
 <%= stylesheet_link_tag "foods", "data-turbo-track": "reload" %>
-<h2>Food List</h2>
+<h1>Food List</h1>
 <div class="add-food-btn">
   <%= link_to 'Add Food', new_food_path, class: 'button-white-black' %>
 </div>
@@ -15,7 +15,6 @@
       <span>Actions</span>
     </div>
     <% @foods.each do |food| %>
-      <% if food.user_id == current_user.id %>
         <li class="food-record"> 
           <span><%= food.name %></span>
           <span><%= food.quantity %></span>
@@ -26,7 +25,6 @@
             <%= form.submit 'Remove' %>
           <% end %>
         </li>
-      <% end %>
     <% end %>
   </ul>
 <% else %>

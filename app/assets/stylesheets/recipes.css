@@ -63,7 +63,7 @@ textarea[id="recipe_description"] {
   row-gap: 10px;
 }
 
-.recipes-show-container h2 {
+.recipes-show-container h1 {
   text-align: center;
 }
 
@@ -77,12 +77,30 @@ textarea[id="recipe_description"] {
   justify-content: space-between;
 }
 
+.ingredients-container {
+  border: 1px solid black;
+}
+
 .ingredients-container li:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 .ingredients-container li:nth-child(odd) {
   background-color: #fff;
+}
+
+.ingredients-header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.ingredients-header span {
+  width: 20%;
+}
+
+.ingredients-header .double-span {
+  width: 40%;
 }
 
 .ingredients {
