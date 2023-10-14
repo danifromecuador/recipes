@@ -1,0 +1,9 @@
+<h1>Users List</h1>
+
+<ul class="users-list-container">
+  <% @users.each do |user| %>
+    <%= link_to foods_path(user_id: user.id) do %>
+      <li> <%= user.name %> </li>
+    <% end %>
+  <% end %>
+</ul>

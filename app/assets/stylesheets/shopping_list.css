@@ -1,0 +1,29 @@
+.shopping-list-container {
+  margin: 0 auto;
+  width: 80%;
+}
+
+.ammount-and-total {
+  display: flex;
+  justify-content: space-between;
+}
+
+table {
+  border-collapse: collapse;
+  width: 100%;
+  border: 5px solid black;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(odd) {
+  background-color: #f2f2f2;
+}

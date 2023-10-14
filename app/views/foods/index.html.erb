@@ -1,0 +1,35 @@
+<!-- app/views/foods/index.html.erb -->
+
+<%= stylesheet_link_tag "foods", "data-turbo-track": "reload" %>
+<h1>Food List</h1>
+<div class="add-food-btn">
+  <%= link_to 'Add Food', new_food_path, class: 'button-white-black' %>
+</div>
+<% if @foods.any? %>
+  <ul class="foods-container">
+    <div class="foods-header">
+      <span>Food</span>
+      <span>Quantity</span>
+      <span>Measurement Unit</span>
+      <span>Unit Price</span>
+      <span>Actions</span>
+    </div>
+    <% @foods.each do |food| %>
+      <li class="food-record"> 
+        <span><%= food.name %></span>
+        <span><%= food.quantity %></span>
+        <span><%= food.measurement_unit %></span>
+        <span>$ <%= food.price %></span>
+        
+        <% if current_user == food.user %> <!-- Check if the current user is the owner of the food -->
+          <%= form_with(model: food, url: food_path(food), method: :delete) do |form| %>
+            <%= form.hidden_field :_method, value: "delete" %>
+            <%= form.submit 'Remove' %>
+          <% end %>
+        <% end %>
+      </li>
+    <% end %>
+  </ul>
+<% else %>
+  <p>No foods added yet.</p>
+<% end %>

@@ -1,0 +1,45 @@
+<div class="recipes-show-container">
+  <h1><%= @recipe.name %></h1>
+
+  <div class="preparation-and-public">
+    <p>Preparation Time: <%= @recipe.preparation_time %> minutes</p>
+    <% if @recipe.public %>
+      <%= button_to 'Public', url_for(action: 'toggle_public', controller: 'recipes', id: @recipe.id), remote: true, method: :patch, class:"button-white-black" %>
+    <% else %>
+      <%= button_to 'Private', url_for(action: 'toggle_public', controller: 'recipes', id: @recipe.id), remote: true, method: :patch, class:"button-white-black" %>
+    <% end %>
+  </div>
+
+  <p>Cooking Time: <%= @recipe.cooking_time %> minutes</p>
+  <p>Description: <%= @recipe.description %></p>
+  
+  <div class="generate-and-add">
+    <%= link_to 'Generate Shopping List', shopping_list_path, class:"button-white-black" %>
+    <%= link_to 'Add Ingredient', new_recipe_food_path(recipe_id: @recipe.id), class:"button-white-black" %>
+  </div>
+  <hr>
+
+  <h3>Ingredients:</h3>
+  <ul class="ingredients-container">
+    <div class="ingredients-header">
+      <span>Food</span>
+      <span>Quantity</span>
+      <span>Value</span>
+      <span class="double-span">Actions</span>
+    </div>
+
+    <% @recipe.recipe_foods.each do |recipe_food| %>
+      <li class="ingredients">
+        <span><%= recipe_food.food.name %></span>
+        <span><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></span>
+        <span>$ <%= recipe_food.food.price %></span>
+        <span><%= link_to 'Modify', edit_quantity_recipe_food_path(recipe_food), class:"button-white-black" %></span>
+        <span>
+          <%= form_with(model: recipe_food, url: recipe_food_path(recipe_food), method: :delete, data: { confirm: 'Are you sure you want to remove this ingredient?' }) do |form| %>
+            <%= form.submit 'Remove', class:"button-white-black" %>
+          <% end %>        
+        </span>
+      </li>
+    <% end %>
+  </ul>
+</div>

@@ -1,0 +1,21 @@
+<div class="shopping-list-container">
+  <h1>Shopping List</h1>
+  <div class="ammount-and-total">
+    <p>Amount of food items to buy: <%= @total_food_items %></p>
+    <p>Total value of food needed: $ <%= @total_price %></p>
+  </div>
+  <table>
+    <tr>
+      <th>Food</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <% @shopping_list[:shopping_list].each do |item| %>
+        <tr>
+          <td><%= item[:food].name %></td>
+          <td><%= item[:quantity] %></td>
+          <td>$ <%= item[:price] %></td>
+        </tr>
+    <% end %>
+  </table>
+</div>

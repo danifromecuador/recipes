@@ -1,0 +1,7 @@
+<%= form_with(model: @recipe_food, url: update_quantity_recipe_food_path(id: @recipe_food.id), method: :patch) do |form| %>
+  <div class="field">
+    <%= form.label :quantity %>
+    <%= form.number_field :quantity %>
+  </div>
+  <%= form.submit 'Update Quantity', class: 'button-white-black' %>
+<% end %>

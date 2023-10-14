@@ -1,0 +1,25 @@
+<%= stylesheet_link_tag "recipes", "data-turbo-track": "reload" %>
+
+<h1>Recipes</h1>
+
+<% @recipes.each do |recipe| %>
+  <div class="recipe" data-id="<%= recipe.id %>">
+    <div class="left">
+      <h3><%= recipe.name %></h3>
+      <div class="remove-btn">
+        <% if recipe.user == current_user %>
+          <%= form_with(model: recipe, url: recipe_path(recipe), method: :delete) do |form| %>
+            <%= form.hidden_field :_method, value: "delete" %>
+            <%= form.submit 'Remove', class: 'button-white-black' %>
+          <% end %>
+        <% end %>
+      </div>
+    </div>
+    
+    <%= link_to recipe_path(recipe), class: "right" do %>    
+      <p><%= recipe.description %></p>
+    <% end %>
+  </div>
+<% end %>
+
+<%= link_to "New Recipe", new_recipe_path, class: "add-btn" %>

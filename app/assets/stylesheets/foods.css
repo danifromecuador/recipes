@@ -1,0 +1,72 @@
+.add-food-btn {
+  display: flex;
+  justify-content: flex-end;
+  margin: 10px;
+}
+
+.add-food-btn a {
+  padding: 2px 5px;
+  border-radius: 8px;
+  text-decoration: none;
+  color: black;
+  border: 1px solid black;
+}
+
+.add-food-btn a:hover {
+  background-color: black;
+  color: white;
+}
+
+.foods-container {
+  width: 100%;
+  border: 5px solid black;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.foods-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+span {
+  width: 20%;
+}
+
+.food-record {
+  display: flex;
+}
+
+.foods-container li:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.foods-container li:nth-child(odd) {
+  background-color: #fff;
+}
+
+/* ////////////////////////////// */
+
+/* ///////// foods new  ///////// */
+
+/* ////////////////////////////// */
+
+form[action="/foods"][method="post"] {
+  border: 5px solid black;
+  width: 60%;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 10px;
+}
+
+form[action="/foods"][method="post"] div {
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
+}
+
+input[type="submit"][value="Add Food"] {
+  margin: 10px auto;
+  display: block;
+}

@@ -1,0 +1,24 @@
+.users-list-container {
+  width: 60%;
+  margin: 10px auto;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+}
+
+.users-list-container li {
+  list-style: none;
+  border: 5px solid black;
+  display: flex;
+  justify-content: center;
+}
+
+.users-list-container li:hover {
+  background-color: black;
+  color: white;
+}
+
+.users-list-container a {
+  text-decoration: none;
+  color: black;
+}
