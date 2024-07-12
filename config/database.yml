@@ -2,19 +2,26 @@ default: &default
   adapter: postgresql
   encoding: unicode
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
-  schema_search_path: "recipes_schema,public"
 
 development:
   <<: *default
-  database: shared_database_name
+  database: recipes_app_4x8y
+  username: recipes_app_4x8y_user
+  password: cr5G6k4AQSHW4ZKgxh9Uy5UTrPiWLMLB
+  host: dpg-cpu5v1tumphs738i5p60-a.oregon-postgres.render.com
+  port: 5432
 
 test:
   <<: *default
-  database: shared_database_name
+  database: recipes_app_4x8y
+  username: recipes_app_4x8y_user
+  password: cr5G6k4AQSHW4ZKgxh9Uy5UTrPiWLMLB
+  host: dpg-cpu5v1tumphs738i5p60-a.oregon-postgres.render.com
+  port: 5432
 
 production:
   <<: *default
-  database: shared_database_name
-  username: recipes
+  database: recipes_app_4x8y
+  username: recipes_app_4x8y_user
   password: <%= ENV["RECIPES_DATABASE_PASSWORD"] %>
-  url:  <%= ENV['DATABASE_URL'] %>
+  url: <%= ENV['RECIPES_DATABASE_URL'] %>
